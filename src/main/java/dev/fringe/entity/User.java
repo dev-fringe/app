@@ -15,7 +15,7 @@ public class User extends Page{
     @Id
     @GeneratedValue
     private long id;
-    private String name;
+    private String name = "";
 
     public User() {
     }

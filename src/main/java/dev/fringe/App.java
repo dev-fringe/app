@@ -9,6 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
+import dev.fringe.entity.User;
 import dev.fringe.entity.support.Attachment;
 import dev.fringe.entity.support.Mail;
 import dev.fringe.service.EmailService;
@@ -21,9 +22,9 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class App extends AbstractAppLogging {
 	@Autowired
-	private UserService service2;
+	private UserService userService;
 	@Autowired 
-	private EmailService service;
+	private EmailService emailService;
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args){
@@ -33,11 +34,12 @@ public class App extends AbstractAppLogging {
 	}
 
 	public void run() {
-		service2.save();
+		userService.save();
 		Map<String, Object> map = new HashMap<>();
-		map.put("users", service2.get(50,50));
-		String html =  service.getContentFromTemplate("template/template.mustache", map);
-		service.sendSimpleMessage(new Mail("dev.fringe@gmail.com", "dev.fringe@gmail.com", "title", html, Arrays.asList(new Attachment("app-local.yml","app-local.yml") )));
+		User user = new User();
+		map.put("users", userService.list(user));
+		String html =  emailService.getContentFromTemplate("template/template.mustache", map);
+		emailService.sendSimpleMessage(new Mail("dev.fringe@gmail.com", "dev.fringe@gmail.com", "title", html, Arrays.asList(new Attachment("app-local.yml","app-local.yml") )));
 	}
 
 

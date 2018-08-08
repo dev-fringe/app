@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Mustache.Compiler;
 
-import dev.fringe.entity.support.Application;
+import dev.fringe.entity.support.ApplicationMenu;
 import dev.fringe.entity.support.Layout;
 import dev.fringe.entity.support.Menu;
 import dev.fringe.service.UserService;
@@ -20,10 +20,10 @@ public class LayoutAdvice implements InitializingBean{
 
 	private final Mustache.Compiler compiler;
 
-	private Application application;
+	private ApplicationMenu application;
 
 	@Autowired
-	public LayoutAdvice(Compiler compiler, Application application) {
+	public LayoutAdvice(Compiler compiler, ApplicationMenu application) {
 		this.compiler = compiler;
 		this.application = application;
 	}

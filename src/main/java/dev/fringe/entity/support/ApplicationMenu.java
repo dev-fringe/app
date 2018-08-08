@@ -8,14 +8,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties("app")
-public class Application {
+public class ApplicationMenu {
 
 	private List<Menu> menus = new ArrayList<>();
 
 	public List<Menu> getMenus() {
 		return menus;
 	}
-
+	
 	public Menu getMenu(String name) {
 		for (Menu menu : menus) {
 			if (menu.getName().equalsIgnoreCase(name)) {

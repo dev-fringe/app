@@ -11,7 +11,7 @@ public class SimpleClientWebSocketHandler extends TextWebSocketHandler {
 	protected Log logger = LogFactory.getLog(SimpleClientWebSocketHandler.class);
 
 	public void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-		logger.debug("Received: " + message);
+		logger.info("Received: " + message);
 		session.close();
 	}
 

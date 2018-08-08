@@ -17,18 +17,19 @@ public class UserRepository extends AbstractRepository<User, Long> {
 
 	public void save() {
 		for (int itr = 1; itr <= 100; itr++) {
-			getSession().save(new User("sdsd" + itr));
+			this.persist(new User("sdsd" + itr));
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<User> list(Integer offset, Integer maxResults) {
-		return getSession().createQuery("From User").setFirstResult(offset != null ? offset : 0)
-				.setMaxResults(maxResults != null ? maxResults : 10).list();
+	public List<User> list(User user) {
+		Integer offset = user.getFrom();
+		Integer maxResults = user.getSize();
+		return getSession().createQuery("From User where name LIKE :name").setParameter("name", "%"+user.getName()+"%").setFirstResult(offset != null ? offset : 0).setMaxResults(maxResults != null ? maxResults : 10).list();
 	}
 
-	public int count() {
-		return getSession().createQuery("From User").list().size();
+	public int count(User user) {
+		return getSession().createQuery("From User where name LIKE :name").setParameter("name", "%"+user.getName()+"%").list().size();
 	}
 
 }

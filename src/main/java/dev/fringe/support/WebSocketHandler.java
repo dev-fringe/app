@@ -12,20 +12,20 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import lombok.extern.log4j.Log4j2;
 
 @Component
-@Log4j2
+//@Log4j2
 public class WebSocketHandler extends TextWebSocketHandler {
 
 	private List<WebSocketSession> sessionList = new ArrayList<WebSocketSession>();
 
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		sessionList.add(session);
-		log.info("{} ø¨∞·µ ", session.getId());
+//		log.info("{} ø¨∞·µ ", session.getId());
 	}
 
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         sessionList.remove(session);
-        log.info("{} «ÿ¡¶µ ", session.getId()); 
+//        log.info("{} «ÿ¡¶µ ", session.getId()); 
 		super.afterConnectionClosed(session, status);
 	}
 

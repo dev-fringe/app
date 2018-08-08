@@ -19,6 +19,8 @@ public abstract class Page {
 	private int rowcount;
 	private boolean firstPage;
 	private boolean lastPage;
+	private String previousUrl;
+	private String nextUrl;
 	private List<Url> urls;
 	
 	public void setRowcount(int rowcount) {
@@ -29,7 +31,7 @@ public abstract class Page {
 		}else {
 			this.firstPage=false;
 		}
-		if(page == rowcount/size) {
+		if(page == rowcount/size || 0 == rowcount/size) {
 			this.lastPage=true;
 		}else {
 			this.lastPage=false;
@@ -42,6 +44,8 @@ public abstract class Page {
 	}
 
 	public void setUrls(String path) {
+		this.previousUrl = path + "?page=" + (page -1);
+		this.nextUrl = path + "?page=" + (page + 1);
 		List<Url> urls = new ArrayList<>();
 		for (int i = 0; i < rowcount/size ; i++) {
 			Url p= new Url();
@@ -52,6 +56,4 @@ public abstract class Page {
 		}
 		this.urls = urls;
 	}
-	
-	
 }

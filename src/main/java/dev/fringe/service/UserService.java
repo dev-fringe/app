@@ -23,18 +23,19 @@ public class UserService {
 		repo.save();
 	}
 
-	public List<User> get(int offset, int maxResults) {
-		return repo.list(offset, maxResults);
+	public List<User> list(User user) {
+		System.out.println(user);
+		return repo.list(user);
 	}
-	public int count() {
-		return repo.count();
+	public int count(User user) {
+		return repo.count(user);
 	}
 
 	public Map<String, Object> get(User user) {
 		Map<String, Object> map = new HashMap<>();
-		user.setRowcount(this.count());
+		user.setRowcount(this.count(user));
 		map.put("user", user);
-		map.put("users", repo.list(user.getFrom(), user.getSize()));
+		map.put("users", this.list(user));
 		return map;
 	}
 }
