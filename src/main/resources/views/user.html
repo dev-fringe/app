@@ -1,0 +1,43 @@
+{{#layout}}
+<h3>Brand / Logo</h3>
+<p>The .navbar-brand class is used to highlight the brand/logo/project name of your page.</p>
+
+  <div class="table-responsive ">          
+  <table class="table table-sm">
+	<tr>
+		<th>ID</th>
+		<th>NAME</th>
+	</tr>
+	{{#users}}
+	<tr>
+		<td>{{id}}</td>
+		<td>{{name}}</td>
+	</tr>
+	{{/users}}
+</table>
+</div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    {{#user.firstPage}}
+    	<li class="page-item disabled">
+    {{/user.firstPage}}
+    {{^user.firstPage}}
+    	<li class="page-item">
+    {{/user.firstPage}}
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+     {{#user.urls}}
+    <li class="page-item"><a class="page-link" href="{{url}}">{{num}}</a></li>
+     {{/user.urls}}
+    {{#user.lastPage}}
+    	<li class="page-item disabled">
+    {{/user.lastPage}}
+    {{^user.lastPage}}
+    	<li class="page-item">
+    {{/user.lastPage}}    
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+{{/layout}}
