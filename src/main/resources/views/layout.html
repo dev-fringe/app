@@ -24,7 +24,7 @@ body {
  <header>
        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 		<!-- Brand/logo -->
-        <a class="navbar-brand" href="/">Home</a>
+        <a class="navbar-brand py-0" href="/">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +32,7 @@ body {
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
 			{{#menus}}
-			<li class="nav-item"><a class="nav-link" href="{{path}}">{{name}}</a></li>{{/menus}}
+			<li class="nav-item"><a class="nav-link py-0" href="{{path}}">{{name}}</a></li>{{/menus}}
 		</ul>
 		</div>
 	</nav>

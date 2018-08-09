@@ -9,13 +9,12 @@ import org.apache.catalina.startup.Tomcat;
  */
 public class WebApp{
 	public static void main(String[] args) throws Exception {
-		String webappDirLocation = "";
-		Tomcat tomcat = new Tomcat();
-		tomcat.setPort(80);
-		tomcat.addWebapp("", new File(webappDirLocation).getAbsolutePath());
-		System.out.println("configuring app with basedir: " + new File("./" + webappDirLocation).getAbsolutePath());
-		tomcat.start();
-		tomcat.getServer().await();
+        Tomcat tomcat = new Tomcat();
+        tomcat.setPort(80);
+        tomcat.setBaseDir(System.getProperty("java.io.tmpdir"));
+        tomcat.addWebapp("/", new File("src/main/webapp").getAbsolutePath());
+        tomcat.start();
+        tomcat.getServer().await();
 	}
 
 

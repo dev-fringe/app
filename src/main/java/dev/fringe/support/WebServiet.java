@@ -15,7 +15,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @ComponentScan(basePackages = { "dev.fringe.repository", "dev.fringe.service",
 		"dev.fringe.controller", "dev.fringe.entity.support" }, basePackageClasses = {MustacheAutoConfiguration.class, WebSocketConfig.class})
-@ImportResource(value = { "classpath:/infrastructure/context-application.xml" })
+@ImportResource(value = { "classpath:/infrastructure/context-application.xml"
+		//,"classpath:/infrastructure/context-view.xml" 
+		})
 @EnableWebMvc
 public class WebServiet extends AbstractAppLogging implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {

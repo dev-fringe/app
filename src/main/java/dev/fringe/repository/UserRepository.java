@@ -17,7 +17,7 @@ public class UserRepository extends AbstractRepository<User, Long> {
 
 	public void save() {
 		for (int itr = 1; itr <= 100; itr++) {
-			this.persist(new User("sdsd" + itr));
+			getSession().save(new User("sdsd" + itr, "dev.fringe" + itr + "@gmail.com" , "password"+ itr));
 		}
 	}
 
@@ -28,8 +28,15 @@ public class UserRepository extends AbstractRepository<User, Long> {
 		return getSession().createQuery("From User where name LIKE :name").setParameter("name", "%"+user.getName()+"%").setFirstResult(offset != null ? offset : 0).setMaxResults(maxResults != null ? maxResults : 10).list();
 	}
 
-	public int count(User user) {
-		return getSession().createQuery("From User where name LIKE :name").setParameter("name", "%"+user.getName()+"%").list().size();
+	public Long count(User user) {
+		return (Long) getSession().createQuery("select count(*) from User where name LIKE :name").setParameter("name", "%"+user.getName()+"%").uniqueResult();
 	}
+	
+	public void persist(User user) {
+		System.out.println(user);
+		getSession().save(user);
+		getSession().save(new User("sdsd", "dev.fringe@gmail.com" , "password"));
+	}
+
 
 }

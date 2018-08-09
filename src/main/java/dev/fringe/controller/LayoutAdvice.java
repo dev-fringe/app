@@ -54,7 +54,7 @@ public class LayoutAdvice implements InitializingBean{
 	private UserService userService;
 	
 	public void afterPropertiesSet() throws Exception {
-		userService.save();
+//		userService.save();
 	}
 }
 

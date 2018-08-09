@@ -16,14 +16,14 @@ public abstract class Page {
 	private int page = 1;
 	private int num;
 	private int from;
-	private int rowcount;
+	private Long rowcount;
 	private boolean firstPage;
 	private boolean lastPage;
 	private String previousUrl;
 	private String nextUrl;
 	private List<Url> urls;
 	
-	public void setRowcount(int rowcount) {
+	public void setRowcount(Long rowcount) {
 		this.rowcount = rowcount;
 		this.from = (page -1) * size;
 		if(page == 1) {

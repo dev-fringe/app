@@ -24,18 +24,22 @@ public class UserService {
 	}
 
 	public List<User> list(User user) {
-		System.out.println(user);
 		return repo.list(user);
 	}
-	public int count(User user) {
+	public Long count(User user) {
 		return repo.count(user);
 	}
 
 	public Map<String, Object> get(User user) {
 		Map<String, Object> map = new HashMap<>();
 		user.setRowcount(this.count(user));
+		System.out.println(this.list(user));
 		map.put("user", user);
 		map.put("users", this.list(user));
 		return map;
+	}
+ 
+	public void add(User user) {
+		repo.persist(user);
 	}
 }

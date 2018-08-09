@@ -3,14 +3,19 @@ package dev.fringe.support;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author dev-frine
  */
+@Repository
+@Transactional
 public abstract class AbstractRepository<T, PK extends Serializable> {
 
 	private final Class<T> persistentClass;

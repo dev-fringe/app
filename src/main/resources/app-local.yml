@@ -2,6 +2,9 @@ app.menus:
   - title: User
     name: User
     path: /user
+  - title: Login
+    name: Login
+    path: /login       
   - title: Socket
     name: Socket
     path: /socket    

@@ -34,12 +34,21 @@ public class App extends AbstractAppLogging {
 	}
 
 	public void run() {
-		userService.save();
-		Map<String, Object> map = new HashMap<>();
-		User user = new User();
-		map.put("users", userService.list(user));
-		String html =  emailService.getContentFromTemplate("template/template.mustache", map);
-		emailService.sendSimpleMessage(new Mail("dev.fringe@gmail.com", "dev.fringe@gmail.com", "title", html, Arrays.asList(new Attachment("app-local.yml","app-local.yml") )));
+		User user = new User("2323", "sdd", "sdd");
+		user.setRole("ROLE_USER");
+		System.out.println(user);
+		userService.add(user);
+		System.out.println(userService.list(new User()));
+		User user2 = new User("232312332", "sdd", "sdd");
+		System.out.println(user2);
+		userService.add(user2);
+		System.out.println(userService.list(new User()));
+//		userService.save();
+//		Map<String, Object> map = new HashMap<>();
+//		User user = new User();
+//		map.put("users", userService.list(user));
+//		String html =  emailService.getContentFromTemplate("template/template.mustache", map);
+//		emailService.sendSimpleMessage(new Mail("dev.fringe@gmail.com", "dev.fringe@gmail.com", "title", html, Arrays.asList(new Attachment("app-local.yml","app-local.yml") )));
 	}
 
 
