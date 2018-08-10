@@ -1,18 +1,11 @@
 package dev.fringe;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 import dev.fringe.entity.User;
-import dev.fringe.entity.support.Attachment;
-import dev.fringe.entity.support.Mail;
-import dev.fringe.service.EmailService;
 import dev.fringe.service.UserService;
 import dev.fringe.support.AbstractAppLogging;
 import lombok.extern.log4j.Log4j2;
@@ -23,8 +16,8 @@ import lombok.extern.log4j.Log4j2;
 public class App extends AbstractAppLogging {
 	@Autowired
 	private UserService userService;
-	@Autowired 
-	private EmailService emailService;
+//	@Autowired 
+//	private EmailService emailService;
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args){

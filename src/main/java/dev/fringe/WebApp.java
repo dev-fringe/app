@@ -12,10 +12,8 @@ public class WebApp{
         Tomcat tomcat = new Tomcat();
         tomcat.setPort(80);
         tomcat.setBaseDir(System.getProperty("java.io.tmpdir"));
-        tomcat.addWebapp("/", new File("src/main/webapp").getAbsolutePath());
+        tomcat.addWebapp("/", new File(".").getAbsolutePath());
         tomcat.start();
         tomcat.getServer().await();
 	}
-
-
 }

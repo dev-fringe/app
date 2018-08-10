@@ -13,4 +13,8 @@ public class SocketController {
 	public String index() {
 		return "socket";
 	}
+	@GetMapping("/chart")
+	public String chart() {
+		return "chart";
+	}
 }

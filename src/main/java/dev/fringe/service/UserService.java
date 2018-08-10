@@ -11,7 +11,7 @@ import dev.fringe.entity.User;
 import dev.fringe.repository.UserRepository;
 
 /**
- * @author dev-frine
+ * @author dev-fringe
  */
 @Service
 public class UserService {
@@ -26,6 +26,7 @@ public class UserService {
 	public List<User> list(User user) {
 		return repo.list(user);
 	}
+	
 	public Long count(User user) {
 		return repo.count(user);
 	}
@@ -37,6 +38,10 @@ public class UserService {
 		map.put("user", user);
 		map.put("users", this.list(user));
 		return map;
+	}
+	
+	public User get(String username) {
+		return repo.get(username);
 	}
  
 	public void add(User user) {

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Mustache.Compiler;
 
+import dev.fringe.entity.User;
 import dev.fringe.entity.support.ApplicationMenu;
 import dev.fringe.entity.support.Layout;
 import dev.fringe.entity.support.Menu;
@@ -36,6 +37,15 @@ public class LayoutAdvice implements InitializingBean{
 		return application.getMenus();
 	}
 
+//	@ModelAttribute("authUser")
+//	public AuthUser menus(@ModelAttribute AuthUser user) {
+//		AuthUser principal = (AuthUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		if(principal != null) {
+//			return principal;
+//		}
+//		return null;
+//	}
+
 	@ModelAttribute("menu")
 	public Mustache.Lambda menu(@ModelAttribute Layout layout) {
 		return (frag, out) -> {
@@ -54,7 +64,12 @@ public class LayoutAdvice implements InitializingBean{
 	private UserService userService;
 	
 	public void afterPropertiesSet() throws Exception {
-//		userService.save();
+		User user  = new User();
+		user.setEmail("dev.fringe@gmail.com");
+		user.setName("LEE HAK DO");
+		user.setPassword("123");
+		user.setRole("ROLE_ADMIN");
+		userService.add(user);
 	}
 }
 
