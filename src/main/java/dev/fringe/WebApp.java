@@ -10,7 +10,7 @@ import org.apache.catalina.startup.Tomcat;
 public class WebApp{
 	public static void main(String[] args) throws Exception {
         Tomcat tomcat = new Tomcat();
-        tomcat.setPort(80);
+        tomcat.setPort(8080);
         tomcat.setBaseDir(System.getProperty("java.io.tmpdir"));
         tomcat.addWebapp("/", new File(".").getAbsolutePath());
         tomcat.start();
