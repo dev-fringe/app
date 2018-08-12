@@ -1,0 +1,35 @@
+{{#layout}}
+<div id="wrapper-login">
+
+    <h1>Register New User</h1>
+
+    <form id="userAttribute" action="/register" method="POST">
+        <table class="horiz">
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input id="name" name="name" type="text" value=""/></td>
+            </tr>        
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input id="email" name="email" type="text" value=""/></td>
+            </tr>
+
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input id="password" name="password" type="text" value=""/></td>
+            </tr>
+
+            <tr>
+                <td><label for="role">Mode:</label></td>
+                <td>
+                    <select id="role" name="role">
+                        <option value="ROLE_USER">Customer</option><option value="ROLE_ADMIN">Admin</option>;
+                    </select>
+                </td>
+            </tr>
+
+        </table>
+        <input type="submit" value="Save" />
+    </form>
+</div>
+{{/layout}}
