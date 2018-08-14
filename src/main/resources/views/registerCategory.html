@@ -1,0 +1,24 @@
+{{#layout}}
+<div id="wrapper-login">
+
+    <h1>Register New User</h1>
+
+    <form id="categoryAttribute" action="/registerCategory" method="POST">
+        <table class="horiz">
+            <tr>
+                <td><label for="categoryId">categoryId:</label></td>
+                <td><input id="categoryId" name="categoryId" type="text" value="{{category.categoryId}}"/></td>
+            </tr>        
+            <tr>
+                <td><label for="name">name:</label></td>
+                <td><input id="name" name="name" type="text" value="{{category.name}}"/></td>
+            </tr>
+            <tr>
+                <td><label for="description">description:</label></td>
+                <td><input id="description" name="description" type="text" value="{{category.description}}"/></td>
+            </tr>
+        </table>
+        <input type="submit" value="Save" />
+    </form>
+</div>
+{{/layout}}

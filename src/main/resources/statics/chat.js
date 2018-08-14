@@ -11,6 +11,7 @@ $(function() {
 			      '<td>' + mesg.message + '</td>' +
 			      '<td>' + mesg.time + '</td>' +
 			      '</tr>');
+	alert(mesg.message);
     }
 
     function setConnected(connected) {

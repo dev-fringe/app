@@ -11,11 +11,17 @@ app.menus:
   - title: Socket-Chart
     name: Socket-Chart
     path: /chart
+  - title: Category
+    name: Category
+    path: /category    
 jdbc:
-    driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:example;DB_CLOSE_DELAY=-1
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+    password: moby3776
+    username: root
 hibernate:
    show_sql: true
+   dialect: org.hibernate.dialect.MySQL5Dialect
    packagesToScan: dev.fringe.entity
    hbm2ddl:
       auto: create

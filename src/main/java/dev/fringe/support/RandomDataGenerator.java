@@ -1,4 +1,4 @@
-package dev.fringe.service;
+package dev.fringe.support;
 
 import java.util.Random;
 
@@ -27,7 +27,6 @@ public class RandomDataGenerator implements
 
     @Scheduled(fixedDelay = 1000)
     public void sendDataUpdates() {
-
         this.messagingTemplate.convertAndSend(
             "/data", new Random().nextInt(100));
 
